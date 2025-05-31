@@ -6,6 +6,8 @@ use App\Http\Controllers\ProgramKerjaController;
 use App\Models\PengurusBem;
 use App\Models\ProgramKerja;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,15 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/reset-database', function () {
+    if (App::environment('local')) {
+        Artisan::call('migrate:fresh --seed');
+        return 'Database reset and seeded!';
+    } else {
+        abort(403, 'Unauthorized');
+    }
+});
 
 Route::get('/', function () {
     $totalPengurus = PengurusBem::count();
