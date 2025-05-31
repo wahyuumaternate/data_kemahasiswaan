@@ -11,21 +11,32 @@
             margin: 20px;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 30px;
+        .kop-table {
+            width: 100%;
+            margin-bottom: 10px;
         }
 
-        .header h1 {
+        .kop-title {
+            text-align: center;
+        }
+
+        .kop-title h1 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .kop-title h2 {
+            margin: 2px 0;
             font-size: 14px;
             font-weight: bold;
-            margin-bottom: 5px;
         }
 
-        .header h2 {
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        .kop-line {
+            border-top: 3px solid #000;
+            border-bottom: 1px solid #000;
+            margin-top: 5px;
+            margin-bottom: 20px;
         }
 
         table {
@@ -68,15 +79,37 @@
         .empty-row {
             height: 25px;
         }
+
+        .kop-table {
+            width: 100%;
+            border: none;
+        }
+
+        .kop-table td {
+            border: none;
+            padding: 0;
+        }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <h1>PENGURUS</h1>
-        <h2>BADAN EKSEKUTIF MAHASISWA (BEM)</h2>
-        <h2>STMIK TIDORE MANDIRI</h2>
-    </div>
+    <table class="kop-table">
+        <tr>
+            <td width="20%">
+                <img src="{{ public_path('logo/logo_stimik.png') }}" alt="Logo Universitas" height="60">
+            </td>
+            <td width="60%" class="kop-title">
+                <h1>BADAN EKSEKUTIF MAHASISWA (BEM)</h1>
+                <h2>STMIK TIDORE MANDIRI</h2>
+                <h2>PENGURUS</h2>
+            </td>
+            <td width="20%">
+                <img src="{{ public_path('logo/logo_bem.png') }}" alt="Logo BEM" height="60">
+            </td>
+        </tr>
+    </table>
+
+    <div class="kop-line"></div>
 
     <table>
         <thead>
@@ -105,7 +138,6 @@
                 <td colspan="4" style="text-align: center;"><strong>Bidang - Bidang</strong></td>
             </tr>
 
-
             @foreach ($structured['departemen'] as $departemen => $pengurusList)
                 <tr class="department-header">
                     <td class="text-center" colspan="4">{{ $departemen }}</td>
@@ -119,7 +151,6 @@
                     </tr>
                 @endforeach
 
-                <!-- Tambah baris kosong untuk setiap departemen -->
                 @for ($i = 0; $i < 3 - count($pengurusList); $i++)
                     <tr class="empty-row">
                         <td>&nbsp;</td>

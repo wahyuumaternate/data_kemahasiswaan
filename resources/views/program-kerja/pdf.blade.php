@@ -11,21 +11,44 @@
             margin: 20px;
         }
 
-        .header {
+        .kop-surat {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 5px;
         }
 
-        .header h1 {
+        .kop-table {
+            width: 100%;
+        }
+
+        .kop-table img {
+            width: 80px;
+            height: auto;
+        }
+
+        .kop-title {
+            text-align: center;
+        }
+
+        .kop-title h1 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .kop-title h2 {
             font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 5px;
+            margin: 0;
+            font-weight: normal;
         }
 
-        .header h2 {
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 5px;
+        .garis-ganda {
+            border-bottom: 3px solid black;
+            margin-top: 5px;
+        }
+
+        .garis-tipis {
+            border-bottom: 1px solid black;
+            margin-bottom: 20px;
         }
 
         table {
@@ -47,17 +70,69 @@
             font-weight: bold;
         }
 
-        .empty-row {
-            height: 40px;
+        .kop-table {
+            width: 100%;
+            border: none;
+        }
+
+        .kop-table td {
+            border: none;
+            padding: 0;
+        }
+
+        .kop-table img {
+            width: 80px;
+            height: auto;
+        }
+
+        .kop-title {
+            text-align: center;
+        }
+
+        .kop-title h1 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .kop-title h2 {
+            font-size: 14px;
+            margin: 0;
+            font-weight: normal;
+        }
+
+        .garis-ganda {
+            border-bottom: 3px solid black;
+            margin-top: 5px;
+        }
+
+        .garis-tipis {
+            border-bottom: 1px solid black;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 
 <body>
-    <div class="header">
-        <h1>PROGRAM KERJA</h1>
-        <h2>BADAN EKSEKUTIF MAHASISWA (BEM)</h2>
-        <h2>STMIK TIDORE MANDIRI</h2>
+    <div class="kop-surat">
+        <table class="kop-table">
+            <tr>
+                <td width="20%">
+                    <img src="{{ public_path('logo/logo_stimik.png') }}" alt="Logo Universitas" height="70">
+                </td>
+                <td width="60%" class="kop-title">
+                    <h1>BADAN EKSEKUTIF MAHASISWA (BEM)</h1>
+                    <h2>STMIK TIDORE MANDIRI</h2>
+                    <h2>PROGRAM KERJA</h2>
+                </td>
+                <td width="20%">
+                    <img src="{{ public_path('logo/logo_bem.png') }}" alt="Logo BEM" height="70">
+                </td>
+            </tr>
+
+        </table>
+        <div class="garis-ganda"></div>
+        <div class="garis-tipis"></div>
     </div>
 
     <table>
@@ -76,7 +151,6 @@
                     <td rowspan="{{ max(1, $structured[$dept]->count()) }}">{{ $loop->iteration }}</td>
                     <td rowspan="{{ max(1, $structured[$dept]->count()) }}">{{ $dept }}</td>
                     @if (isset($structured[$dept]) && $structured[$dept]->isNotEmpty())
-                        {{-- Loop program kerja untuk departemen ini --}}
                         @foreach ($structured[$dept] as $index => $program)
                             @if ($index > 0)
                 <tr>
@@ -91,18 +165,7 @@
             <td colspan="2">-</td>
             @endif
             </tr>
-            {{-- Tambah baris kosong kalau mau --}}
-            {{-- @for ($i = 0; $i < 2; $i++)
-                <tr class="empty-row">
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                </tr>
-            @endfor --}}
             @endforeach
-
-
         </tbody>
     </table>
 </body>
