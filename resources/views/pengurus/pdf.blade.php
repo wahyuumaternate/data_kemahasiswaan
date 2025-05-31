@@ -32,12 +32,22 @@
             font-weight: bold;
         }
 
-        .kop-line {
+        .kop-line-top {
             border-top: 3px solid #000;
-            border-bottom: 1px solid #000;
-            margin-top: 5px;
-            margin-bottom: 20px;
+            height: 0;
         }
+
+        .kop-line-gap {
+            height: 2px;
+            /* Atur jarak antar garis */
+        }
+
+        .kop-line-bottom {
+            border-top: 1px solid #000;
+            height: 0;
+            margin-bottom: 10px;
+        }
+
 
         table {
             width: 100%;
@@ -99,9 +109,9 @@
                 <img src="{{ public_path('logo/logo_stimik.png') }}" alt="Logo Universitas" height="60">
             </td>
             <td width="60%" class="kop-title">
+                <h1>PENGURUS</h1>
                 <h1>BADAN EKSEKUTIF MAHASISWA (BEM)</h1>
-                <h2>STMIK TIDORE MANDIRI</h2>
-                <h2>PENGURUS</h2>
+                <h1>STMIK TIDORE MANDIRI</h1>
             </td>
             <td width="20%">
                 <img src="{{ public_path('logo/logo_bem.png') }}" alt="Logo BEM" height="60">
@@ -109,7 +119,10 @@
         </tr>
     </table>
 
-    <div class="kop-line"></div>
+    <div class="kop-line-top"></div>
+    <div class="kop-line-gap"></div>
+    <div class="kop-line-bottom"></div>
+
 
     <table>
         <thead>
