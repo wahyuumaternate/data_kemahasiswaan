@@ -3,6 +3,8 @@
 use App\Http\Controllers\PengurusBemController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProgramKerjaController;
+use App\Models\PengurusBem;
+use App\Models\ProgramKerja;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
+    $totalPengurus = PengurusBem::count();
+    $totalProgramKerja = ProgramKerja::count();
+    return view('dashboard', compact('totalPengurus', 'totalProgramKerja'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
