@@ -19,9 +19,21 @@
     <input type="text" class="form-control" name="angkatan" value="{{ $data->angkatan ?? '' }}">
 </div>
 <div class="mb-3">
-    <label class="form-label">Departemen</label>
-    <input type="text" class="form-control" name="departemen" value="{{ $data->departemen ?? '' }}">
+    <label for="departemen" class="form-label">Departemen</label>
+    <select name="departemen" id="departemen" class="form-select" required>
+        <option value="">-- Pilih Departemen --</option>
+        @php
+            $departemenList = ['Sumberdaya manusia', 'Sosial dan hubungan masyarakat', 'Minat dan bakat', 'Keagamaan'];
+        @endphp
+        @foreach ($departemenList as $item)
+            <option value="{{ $item }}"
+                {{ old('departemen', $data->departemen ?? '') === $item ? 'selected' : '' }}>
+                {{ $item }}
+            </option>
+        @endforeach
+    </select>
 </div>
+
 <div class="mb-3">
     <label class="form-label">Urutan</label>
     <input type="number" class="form-control" name="urutan" value="{{ $data->urutan ?? 0 }}">
