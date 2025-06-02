@@ -30,7 +30,8 @@ class MahasiswaController extends Controller
 
         Mahasiswa::create($request->all());
 
-        return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil ditambahkan');
+        notify()->success('Data berhasil ditambahkan');
+        return redirect()->route('mahasiswa.index');
     }
 
     public function show(Mahasiswa $mahasiswa)
@@ -54,12 +55,15 @@ class MahasiswaController extends Controller
 
         $mahasiswa->update($request->all());
 
-        return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil diubah');
+        notify()->success('Data berhasil diubah');
+        return redirect()->route('mahasiswa.index');
     }
 
     public function destroy(Mahasiswa $mahasiswa)
     {
         $mahasiswa->delete();
-        return redirect()->route('mahasiswa.index')->with('success', 'Data berhasil dihapus');
+
+        notify()->success('Data berhasil dihapus');
+        return redirect()->route('mahasiswa.index');
     }
 }

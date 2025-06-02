@@ -48,7 +48,8 @@ class PendaftaranBemController extends Controller
 
         PendaftaranBem::create($validated);
 
-        return redirect()->route('bem.index')->with('success', 'Pendaftaran berhasil disimpan.');
+        notify()->success('Pendaftaran berhasil disimpan.');
+        return redirect()->route('bem.index');
     }
 
     // Tampilkan detail satu pendaftar
@@ -96,7 +97,8 @@ class PendaftaranBemController extends Controller
 
         $data->update($validated);
 
-        return redirect()->route('bem.index')->with('success', 'Data berhasil diperbarui.');
+        notify()->success('Data berhasil diperbarui.');
+        return redirect()->route('bem.index');
     }
 
     // Hapus data
@@ -109,6 +111,7 @@ class PendaftaranBemController extends Controller
 
         $data->delete();
 
-        return redirect()->route('bem.index')->with('success', 'Data berhasil dihapus.');
+        notify()->success('Data berhasil dihapus.');
+        return redirect()->route('bem.index');
     }
 }

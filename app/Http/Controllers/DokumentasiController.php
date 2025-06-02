@@ -41,7 +41,8 @@ class DokumentasiController extends Controller
             'file_path' => $filePath,
         ]);
 
-        return redirect()->route('dokumentasi.index')->with('success', 'Dokumentasi berhasil ditambahkan.');
+        notify()->success('Dokumentasi berhasil ditambahkan.');
+        return redirect()->route('dokumentasi.index');
     }
 
     // Tampilkan form edit dokumentasi
@@ -74,7 +75,8 @@ class DokumentasiController extends Controller
             'file_path' => $filePath,
         ]);
 
-        return redirect()->route('dokumentasi.index')->with('success', 'Dokumentasi berhasil diperbarui.');
+        notify()->success('Dokumentasi berhasil diperbarui.');
+        return redirect()->route('dokumentasi.index');
     }
 
     // Hapus dokumentasi
@@ -85,6 +87,7 @@ class DokumentasiController extends Controller
         }
         $dokumentasi->delete();
 
-        return redirect()->route('dokumentasi.index')->with('success', 'Dokumentasi berhasil dihapus.');
+        notify()->success('Dokumentasi berhasil dihapus.');
+        return redirect()->route('dokumentasi.index');
     }
 }

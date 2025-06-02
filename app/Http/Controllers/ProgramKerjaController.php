@@ -36,8 +36,8 @@ class ProgramKerjaController extends Controller
 
         ProgramKerja::create($request->all());
 
-        return redirect()->route('program-kerja.index')
-                        ->with('success', 'Program kerja berhasil ditambahkan.');
+        notify()->success('Program kerja berhasil ditambahkan.');
+        return redirect()->route('program-kerja.index');
     }
 
     public function edit(ProgramKerja $programKerja)
@@ -62,30 +62,30 @@ class ProgramKerjaController extends Controller
 
         $programKerja->update($request->all());
 
-        return redirect()->route('program-kerja.index')
-                        ->with('success', 'Program kerja berhasil diperbarui.');
+        notify()->success('Program kerja berhasil diperbarui.');
+        return redirect()->route('program-kerja.index');
     }
 
     public function destroy(ProgramKerja $programKerja)
     {
         $programKerja->delete();
-        return redirect()->route('program-kerja.index')
-                        ->with('success', 'Program kerja berhasil dihapus.');
+
+        notify()->success('Program kerja berhasil dihapus.');
+        return redirect()->route('program-kerja.index');
     }
 
-   public function downloadPdf()
-{
-    // Ambil semua data program kerja, lalu groupBy departemen
-    $structured = ProgramKerja::all()->groupBy('departemen');
+    public function downloadPdf()
+    {
+        // Ambil semua data program kerja, lalu groupBy departemen
+        $structured = ProgramKerja::all()->groupBy('departemen');
 
-    // Ambil daftar departemen unik dari program kerja (opsional, jika dibutuhkan di view)
-    $departemen = ProgramKerja::select('departemen')->distinct()->pluck('departemen');
+        // Ambil daftar departemen unik dari program kerja (opsional, jika dibutuhkan di view)
+        $departemen = ProgramKerja::select('departemen')->distinct()->pluck('departemen');
 
-    // Kirim data ke view PDF
-    $pdf = PDF::loadView('program-kerja.pdf', compact('structured', 'departemen'));
-    $pdf->setPaper('A4', 'portrait');
+        // Kirim data ke view PDF
+        $pdf = PDF::loadView('program-kerja.pdf', compact('structured', 'departemen'));
+        $pdf->setPaper('A4', 'portrait');
 
-    return $pdf->stream('Program_Kerja_BEM_' . date('Y-m-d') . '.pdf');
-}
-
+        return $pdf->stream('Program_Kerja_BEM_' . date('Y-m-d') . '.pdf');
+    }
 }

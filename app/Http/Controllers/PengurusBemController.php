@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PengurusBemController extends Controller
 {
-      public function index()
+    public function index()
     {
         $structured = PengurusBem::all();
         return view('pengurus.index', compact('structured'));
@@ -33,8 +33,8 @@ class PengurusBemController extends Controller
 
         PengurusBem::create($request->all());
 
-        return redirect()->route('pengurus.index')
-                        ->with('success', 'Data pengurus berhasil ditambahkan.');
+        notify()->success('Data pengurus berhasil ditambahkan.');
+        return redirect()->route('pengurus.index');
     }
 
     public function edit(PengurusBem $penguru)
@@ -56,15 +56,16 @@ class PengurusBemController extends Controller
 
         $penguru->update($request->all());
 
-        return redirect()->route('pengurus.index')
-                        ->with('success', 'Data pengurus berhasil diperbarui.');
+        notify()->success('Data pengurus berhasil diperbarui.');
+        return redirect()->route('pengurus.index');
     }
 
     public function destroy(PengurusBem $penguru)
     {
         $penguru->delete();
-        return redirect()->route('pengurus.index')
-                        ->with('success', 'Data pengurus berhasil dihapus.');
+
+        notify()->success('Data pengurus berhasil dihapus.');
+        return redirect()->route('pengurus.index');
     }
 
     public function downloadPdf()
@@ -74,6 +75,6 @@ class PengurusBemController extends Controller
         $pdf = PDF::loadView('pengurus.pdf', compact('structured'));
         $pdf->setPaper('A4', 'portrait');
         
-       return $pdf->stream('Pengurus_BEM_' . date('Y-m-d') . '.pdf');
+        return $pdf->stream('Pengurus_BEM_' . date('Y-m-d') . '.pdf');
     }
 }
