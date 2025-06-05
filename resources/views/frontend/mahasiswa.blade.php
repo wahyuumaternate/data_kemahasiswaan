@@ -45,9 +45,10 @@
                                     <td>{{ $mhs->nama }}</td>
                                     <td>{{ $mhs->jurusan }}</td>
                                     <td>{{ $mhs->angkatan }}</td>
-                                    <td>{{ $mhs->email }}</td>
-                                    <td>{{ $mhs->no_hp }}</td>
-                                    <td>{{ $mhs->alamat }}</td>
+                                    <td>{{ substr($mhs->email, 0, 1) . '****@****' }}</td>
+                                    <td>{{ substr($mhs->no_hp, 0, 4) . '*****' }}</td>
+                                    <td>{{ substr($mhs->alamat, 0, 5) . '...' }}</td>
+
                                 </tr>
                             @empty
                                 <tr>
