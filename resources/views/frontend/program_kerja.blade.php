@@ -12,7 +12,7 @@
                 <hr style="border-top: 3px solid #000; margin: 10px 0;">
                 <hr style="border-top: 1px solid #000; margin: 0 0 20px 0;">
             </div>
-
+            <br>
             <div class="table-responsive">
                 <div class="text-end mb-3">
                     <a href="{{ route('program.kerja.download') }}" class="btn btn-danger" target="_blank">

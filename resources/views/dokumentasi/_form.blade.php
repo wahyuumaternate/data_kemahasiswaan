@@ -24,7 +24,7 @@
     @enderror
 
     @if (!empty($dokumentasi->file_path))
-        <small class="text-muted">File saat ini: <a href="{{ Storage::url($dokumentasi->file_path) }}"
+        <small class="text-muted">File saat ini: <a href="{{ asset('storage/' . $dokumentasi->file_path) }}"
                 target="_blank">Lihat File</a></small>
     @endif
 </div>

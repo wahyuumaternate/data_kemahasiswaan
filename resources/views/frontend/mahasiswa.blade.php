@@ -5,7 +5,16 @@
         <!-- Mahasiswa Data Section -->
         <section id="mahasiswa" class="section">
             <div class="container" data-aos="fade-up">
-                <h2 class="section-title">Data Mahasiswa</h2>
+                <div class="text-center mb-4">
+                    <img src="{{ asset('logo/logo_stimik.png') }}" height="80" class="me-2">
+                    <img src="{{ asset('logo/logo_bem.png') }}" height="80" class="ms-2">
+                    <h3 class="mt-3 mb-0">DATA MAHASISWA</h3>
+                    <h4 class="mb-0">STMIK TIDORE MANDIRI</h4>
+                    {{-- <h5></h5> --}}
+                    <hr style="border-top: 3px solid #000; margin: 10px 0;">
+                    <hr style="border-top: 1px solid #000; margin: 0 0 20px 0;">
+                </div>
+                <br>
 
                 <!-- Search form -->
                 <form method="GET" action="{{ route('mahasiswa.index') }}" class="mb-4">

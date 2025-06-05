@@ -4,7 +4,16 @@
 @section('main')
     <section class="py-5 bg-white">
         <div class="container">
-            <h1 class="text-center mb-5">Struktur Kepengurusan BEM</h1>
+            <div class="text-center mb-4">
+                <img src="{{ asset('logo/logo_stimik.png') }}" height="80" class="me-2">
+                <img src="{{ asset('logo/logo_bem.png') }}" height="80" class="ms-2">
+                <h3 class="mt-3 mb-0">STRUKTUR PENGURUS</h3>
+                <h4 class="mb-0">BADAN EKSEKUTIF MAHASISWA (BEM)</h4>
+                <h5>STMIK TIDORE MANDIRI</h5>
+                <hr style="border-top: 3px solid #000; margin: 10px 0;">
+                <hr style="border-top: 1px solid #000; margin: 0 0 20px 0;">
+            </div>
+            <br>
 
             {{-- Tombol Download PDF --}}
             <div class="d-flex justify-content-end mb-4">
@@ -36,7 +45,8 @@
                         @foreach ($anggota as $pengurus)
                             <li class="list-group-item shadow-sm mb-2 rounded">
                                 <div class="fw-semibold">{{ $pengurus['jabatan'] }}</div>
-                                <div>{{ $pengurus['nama'] }} - {{ $pengurus['npm'] }} (Angkatan {{ $pengurus['angkatan'] }})
+                                <div>{{ $pengurus['nama'] }} - {{ $pengurus['npm'] }} (Angkatan
+                                    {{ $pengurus['angkatan'] }})
                                 </div>
                             </li>
                         @endforeach
