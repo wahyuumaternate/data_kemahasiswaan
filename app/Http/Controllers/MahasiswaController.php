@@ -22,11 +22,13 @@ class MahasiswaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nim' => 'required|unique:mahasiswa,nim',
+            'npm' => 'required|unique:mahasiswa,npm',
             'nama' => 'required',
             'jurusan' => 'required',
             'angkatan' => 'required|digits:4',
+            'kegiatan_diikuti' => 'nullable',
         ]);
+
 
         Mahasiswa::create($request->all());
 

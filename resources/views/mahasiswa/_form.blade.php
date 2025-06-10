@@ -1,6 +1,6 @@
 <div class="mb-3">
-    <label for="nim" class="form-label">NIM</label>
-    <input type="text" name="nim" id="nim" class="form-control" value="{{ old('nim', $mahasiswa->nim ?? '') }}"
+    <label for="npm" class="form-label">NPM</label>
+    <input type="text" name="npm" id="npm" class="form-control" value="{{ old('npm', $mahasiswa->npm ?? '') }}"
         required>
 </div>
 <div class="mb-3">
@@ -18,7 +18,7 @@
     <input type="number" name="angkatan" id="angkatan" class="form-control"
         value="{{ old('angkatan', $mahasiswa->angkatan ?? '') }}" required>
 </div>
-<div class="mb-3">
+{{-- <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input type="email" name="email" id="email" class="form-control"
         value="{{ old('email', $mahasiswa->email ?? '') }}">
@@ -27,8 +27,8 @@
     <label for="no_hp" class="form-label">No HP</label>
     <input type="text" name="no_hp" id="no_hp" class="form-control"
         value="{{ old('no_hp', $mahasiswa->no_hp ?? '') }}">
-</div>
+</div> --}}
 <div class="mb-3">
-    <label for="alamat" class="form-label">Alamat</label>
-    <textarea name="alamat" id="alamat" class="form-control" rows="2">{{ old('alamat', $mahasiswa->alamat ?? '') }}</textarea>
+    <label for="alamat" class="form-label">Kegiatan Diikuti</label>
+    <textarea name="kegiatan_diikuti" id="kegiatan_diikuti" class="form-control" rows="2">{{ old('kegiatan_diikuti', $mahasiswa->kegiatan_diikuti ?? '') }}</textarea>
 </div>

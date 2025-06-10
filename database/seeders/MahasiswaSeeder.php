@@ -16,13 +16,13 @@ class MahasiswaSeeder extends Seeder
         // Mahasiswa::factory()->count(10)->create(); // Jika pakai factory
         // Atau manual:
         Mahasiswa::create([
-            'nim' => '230101001',
+            'npm' => '230101001',
             'nama' => 'Andi Saputra',
             'jurusan' => 'Informatika',
             'angkatan' => 2023,
-            'email' => 'andi@example.com',
-            'no_hp' => '081234567890',
-            'alamat' => 'Jl. Merdeka No.1'
+            // 'email' => 'andi@example.com',
+            // 'no_hp' => '081234567890',
+            'kegiatan_diikuti' => 'Jl. Merdeka No.1'
         ]);
     }
 }

@@ -44,26 +44,26 @@
                     <table class="table datatable">
                         <thead>
                             <tr>
-                                <th>NIM</th>
+                                <th>NPM</th>
                                 <th>Nama</th>
                                 <th>Jurusan</th>
                                 <th>Angkatan</th>
-                                <th>Email</th>
-                                <th>No HP</th>
-                                <th>Alamat</th>
+                                {{-- <th>Email</th>
+                                <th>No HP</th> --}}
+                                <th>Kegiatan Diikuti</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($mahasiswa as $mhs)
                                 <tr>
-                                    <td>{{ $mhs->nim }}</td>
+                                    <td>{{ $mhs->npm }}</td>
                                     <td>{{ $mhs->nama }}</td>
                                     <td>{{ $mhs->jurusan }}</td>
                                     <td>{{ $mhs->angkatan }}</td>
-                                    <td>{{ $mhs->email }}</td>
-                                    <td>{{ $mhs->no_hp }}</td>
-                                    <td>{{ $mhs->alamat }}</td>
+                                    {{-- <td>{{ $mhs->email }}</td>
+                                    <td>{{ $mhs->no_hp }}</td> --}}
+                                    <td>{{ $mhs->kegiatan_diikuti }}</td>
                                     <td>
                                         <!-- Tombol Ubah -->
                                         <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal"

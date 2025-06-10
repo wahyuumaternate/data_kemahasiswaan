@@ -29,25 +29,26 @@
                     <table class="table table-striped table-bordered align-middle">
                         <thead class="table-light">
                             <tr>
-                                <th>NIM</th>
+                                <th>NPM</th>
                                 <th>Nama</th>
                                 <th>Jurusan</th>
                                 <th>Angkatan</th>
-                                <th>Email</th>
-                                <th>No HP</th>
-                                <th>Alamat</th>
+                                {{-- <th>Email</th>
+                                <th>No HP</th> --}}
+                                <th>Kegiatan Diikuti</th>
                             </tr>
                         </thead>
                         <tbody>
                             @forelse ($mahasiswa as $mhs)
                                 <tr>
-                                    <td>{{ $mhs->nim }}</td>
+                                    <td>{{ $mhs->npm }}</td>
                                     <td>{{ $mhs->nama }}</td>
                                     <td>{{ $mhs->jurusan }}</td>
                                     <td>{{ $mhs->angkatan }}</td>
-                                    <td>{{ substr($mhs->email, 0, 1) . '****@****' }}</td>
+                                    <td>{{ $mhs->kegiatan_diikuti }}</td>
+                                    {{-- <td>{{ substr($mhs->email, 0, 1) . '****@****' }}</td>
                                     <td>{{ substr($mhs->no_hp, 0, 4) . '*****' }}</td>
-                                    <td>{{ substr($mhs->alamat, 0, 5) . '...' }}</td>
+                                    <td>{{ substr($mhs->alamat, 0, 5) . '...' }}</td> --}}
 
                                 </tr>
                             @empty
