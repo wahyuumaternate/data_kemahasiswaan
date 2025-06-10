@@ -1,79 +1,138 @@
 
-# 🚀 Tutorial Menjalankan Proyek Laravel
+# 🎓 Data Kemahasiswaan
 
-Panduan singkat untuk menyiapkan dan menjalankan proyek Laravel setelah proses cloning atau ekstraksi selesai.
-
----
-
-## 📦 Persiapan
-
-Pastikan Anda telah menginstall:
-- PHP >= 8.1
-- Composer
-- MySQL / MariaDB (atau database lainnya)
-- Node.js & NPM (jika proyek menggunakan frontend build tools)
+Repositori ini berisi sistem informasi **Data Kemahasiswaan** berbasis Laravel. Digunakan untuk mengelola data mahasiswa secara efisien dan terstruktur.
 
 ---
 
-## ⚙️ Langkah-langkah Menjalankan Proyek
+## 📌 Fitur Utama
 
-### 1. Clone Repository (jika belum)
+- Manajemen data mahasiswa
+- CRUD data dengan Laravel
+- Relasi antar tabel
+- Validasi dan autentikasi (jika tersedia)
+- Penyimpanan file dan akses publik
+
+---
+
+## 📦 Persyaratan Sistem
+
+Sebelum menjalankan proyek ini, pastikan Anda telah menginstal:
+
+- PHP >= 8.1  
+- Composer  
+- MySQL / MariaDB  
+- Node.js & NPM *(jika menggunakan frontend build seperti Vite / Laravel Mix)*
+
+---
+
+## 🚀 Cara Jalankan Proyek
+
+### 1. Cara Membuka Terminal Proyek
+
+Terminal adalah jendela perintah (command line) tempat menjalankan perintah Laravel.
+
+#### Windows:
+- Buka **Command Prompt** atau **PowerShell**
+- Atau buka **VS Code** → `Terminal > New Terminal`
+
+#### Mac / Linux:
+- Buka aplikasi **Terminal**
+- Atau buka **VS Code** → `Terminal > New Terminal`
+
+Masuk ke folder proyek:
 ```bash
-git clone https://github.com/nama-user/nama-project.git
-cd nama-project
+cd path/ke/folder/proyekmu
+````
+
+Contoh:
+
+```bash
+cd C:\xampp\htdocs\data_kemahasiswaan
 ```
 
-### 2. Install Dependency PHP
+atau
+
+```bash
+cd ~/data_kemahasiswaan
+```
+
+---
+
+### 2. Clone Repository
+
+```bash
+git clone https://github.com/wahyuumaternate/data_kemahasiswaan.git
+cd data_kemahasiswaan
+```
+
+---
+
+### 3. Install Dependency PHP
+
 ```bash
 composer install
 ```
 
-### 3. Salin File `.env`
+---
+
+### 4. Salin File `.env`
+
 ```bash
 cp .env.example .env
 ```
 
-### 4. Generate Application Key
+---
+
+### 5. Generate Application Key
+
 ```bash
 php artisan key:generate
 ```
 
-### 5. Atur Konfigurasi Database
-Edit file `.env` dan sesuaikan bagian berikut:
+---
+
+### 6. Atur Konfigurasi Database
+
+Edit file `.env` dan sesuaikan:
+
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=nama_database
+DB_DATABASE=data_kemahasiswaan
 DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-### 6. Jalankan Migrasi Database (Opsional: + Seeder)
-```bash
-php artisan migrate --seed
-```
+> Pastikan database `data_kemahasiswaan` sudah dibuat di phpMyAdmin atau MySQL.
+
+---
 
 ### 7. Buat Storage Link
+
 ```bash
 php artisan storage:link
 ```
 
-### 8. Jalankan Server Lokal
+---
+
+### 8. Jalankan Server Laravel
+
 ```bash
 php artisan serve
 ```
 
-Server akan berjalan di:
+Akses aplikasi di browser:
+
 ```
 http://127.0.0.1:8000
 ```
 
 ---
 
-## 🛠️ Tambahan (Opsional)
+## ⚙️ Opsional: Jalankan Frontend (Jika Ada)
 
-### Install Dependency Frontend (jika menggunakan Vite atau Laravel Mix)
 ```bash
 npm install
 npm run dev
@@ -81,21 +140,26 @@ npm run dev
 
 ---
 
-## 🧼 Troubleshooting
+## ❗ Troubleshooting
 
-- **Masalah permission (Linux/Mac)**  
-  Jalankan:
-  ```bash
-  sudo chmod -R 775 storage bootstrap/cache
-  ```
+* **Masalah permission (Linux/Mac):**
 
-- **Error saat migrasi**  
+```bash
+sudo chmod -R 775 storage bootstrap/cache
+```
+
+* **Error database:**
   Pastikan database sudah dibuat dan konfigurasi `.env` benar.
 
 ---
 
 ## 📬 Kontak
 
-Untuk pertanyaan atau bantuan lebih lanjut, silakan hubungi:
-- Email: example@domain.com
-- GitHub: [@nama-user](https://github.com/nama-user)
+Untuk pertanyaan dan saran:
+
+* Email: [example@domain.com](mailto:example@domain.com)
+* GitHub: [@wahyuumaternate](https://github.com/wahyuumaternate)
+
+---
+
+
