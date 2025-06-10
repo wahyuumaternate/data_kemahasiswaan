@@ -17,7 +17,7 @@
                 <br>
 
                 <!-- Search form -->
-                <form method="GET" action="{{ route('mahasiswa.index') }}" class="mb-4">
+                <form method="GET" action="{{ route('mahasiswa') }}" class="mb-4">
                     <div class="input-group" style="max-width: 400px;">
                         <input type="text" name="search" value="{{ request('search') }}" class="form-control"
                             placeholder="Cari berdasarkan nama, nim, jurusan...">

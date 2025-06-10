@@ -103,7 +103,7 @@ public function downloadPengurus()
     if ($search = $request->input('search')) {
         $query->where(function($q) use ($search) {
             $q->where('nama', 'like', "%{$search}%")
-              ->orWhere('nim', 'like', "%{$search}%")
+              ->orWhere('npm', 'like', "%{$search}%")
               ->orWhere('jurusan', 'like', "%{$search}%")
               ->orWhere('angkatan', 'like', "%{$search}%");
         });
